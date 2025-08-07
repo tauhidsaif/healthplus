@@ -1,6 +1,11 @@
 /* Tailwind import must be at the top */
 @import "tailwindcss";
 
+html, body {
+ font-family: 'Poppins', sans-serif; /* Use Poppins font */
+}
+
+
 /* Hover underline effect */
 .hover-underline::after {
   content: '';
