@@ -1,3 +1,5 @@
+import ownerImg from '../owner.png'; // adjust the path based on file location
+
 export default function License() {
   return (
     <section
@@ -37,7 +39,7 @@ export default function License() {
           <div className="flex justify-center">
             <div className="relative group transition-transform duration-300 transform hover:scale-105">
               <img
-                src="src/owner.png"
+                src={ownerImg}
                 alt="Store Owner"
                 className="w-48 h-48 object-cover rounded-full border-[6px] border-green-500 shadow-2xl"
               />

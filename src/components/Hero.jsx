@@ -20,7 +20,7 @@ function Hero() {
           {/* Call-to-actions */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
           <a
-            href="https://www.google.com/maps?q=Health+Plus" // ← Replace with your real location
+            href="https://maps.app.goo.gl/uRPk6m1nqeG75KGy9?g_st=aw" // ← Replace with your real location
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md text-lg shadow-lg transition"
