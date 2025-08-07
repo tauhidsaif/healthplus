@@ -97,11 +97,13 @@ function Header() {
   }, [isOpen]);
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Contact", href: "#contact" },
-  ];
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "License", href: "#license" }, // or "#license" if it's a section, not a page
+  { name: "Contact", href: "#contact" },
+];
+
+
 
   return (
     <header className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all dark:bg-gray-900 dark:text-white font-sans">
@@ -128,7 +130,7 @@ function Header() {
               {item.name}
             </a>
           ))}
-          <a href="tel:+919876543210" className="ml-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Book Now</a>
+          <a href="tel:+919876543210" className="ml-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Call Now</a>
           <DarkModeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} buttonRef={darkToggleRef} />
         </nav>
 

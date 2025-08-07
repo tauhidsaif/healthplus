@@ -22,7 +22,7 @@ function Footer() {
   };
 
   return (
-    <footer className="relative bg-green-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 mt-4 border-t border-green-100 dark:border-green-800 transition-colors">
+    <footer id="contact" className="relative bg-green-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-t border-green-100 dark:border-green-800 transition-colors">
       {/* Main Footer Grid */}
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Logo & Tagline */}
@@ -42,10 +42,10 @@ function Footer() {
         <div>
           <h4 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-4">Quick Links</h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-green-600 dark:hover:text-green-300 transition">Home</a></li>
-            <li><a href="#" className="hover:text-green-600 dark:hover:text-green-300 transition">About</a></li>
-            <li><a href="#" className="hover:text-green-600 dark:hover:text-green-300 transition">Services</a></li>
-            <li><a href="#" className="hover:text-green-600 dark:hover:text-green-300 transition">Contact</a></li>
+            <li><a href="#home" className="hover:text-green-600 dark:hover:text-green-300 transition">Home</a></li>
+            <li><a href="#about" className="hover:text-green-600 dark:hover:text-green-300 transition">About</a></li>
+            <li><a href="#license" className="hover:text-green-600 dark:hover:text-green-300 transition">License</a></li>
+            <li><a href="#contact" className="hover:text-green-600 dark:hover:text-green-300 transition">Contact</a></li>
           </ul>
         </div>
 
@@ -53,7 +53,7 @@ function Footer() {
         <div>
           <h4 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-4">Contact Us</h4>
           <ul className="space-y-2 text-sm">
-            <li>📍 Lankri Tiraha, RTO Road, Lankri Fazalpur, Moradabad,  UP - 244001</li>
+            <li>📍 Lankri Tiraha, RTO Road, Lankri Fazalpur, Moradabad, UP - 244001</li>
             <li>📞 +91 95482 60273</li>
             <li>✉️ suhailbaksh954@gmail.com</li>
             <li>🕒 Mon–Sat: 9:00 AM – 9:00 PM</li>
@@ -75,17 +75,20 @@ function Footer() {
           </form>
 
           <div className="flex gap-4 text-xl">
-            <a href="#" className="hover:text-green-600 transition" aria-label="Facebook">
+            <a href="https://www.facebook.com/share/19PGudzAuJ/" target="_blank" className="hover:text-green-600 transition" aria-label="Facebook">
               <i className="fab fa-facebook-f"></i>
             </a>
-            <a href="#" className="hover:text-green-600 transition" aria-label="Instagram">
+            <a href="https://www.instagram.com/suhail_baksh07/" target="_blank" className="hover:text-green-600 transition" aria-label="Instagram">
               <i className="fab fa-instagram"></i>
             </a>
-            <a href="#" className="hover:text-green-600 transition" aria-label="Twitter">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="#" className="hover:text-green-600 transition" aria-label="LinkedIn">
-              <i className="fab fa-linkedin-in"></i>
+            <a
+              href="https://wa.me/919548260273"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-green-600 transition"
+              aria-label="WhatsApp"
+            >
+              <i className="fab fa-whatsapp"></i>
             </a>
           </div>
         </div>

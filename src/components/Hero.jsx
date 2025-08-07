@@ -13,18 +13,22 @@ function Hero() {
           </h1>
           <p className="text-gray-600 dark:text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto">
 
-            Welcome to <strong>Health Plus</strong>, your trusted destination for medicines,
+            Welcome to <strong>Health Plus Medical Store </strong>, your trusted destination for medicines,
             wellness products, personal care, and genuine healthcare support.
           </p>
 
           {/* Call-to-actions */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
-            <a
-              href="#"
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md text-lg shadow-lg transition"
-            >
-              Shop Now
-            </a>
+          <a
+            href="https://www.google.com/maps?q=Health+Plus" // ← Replace with your real location
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md text-lg shadow-lg transition"
+          >
+            Locate Store
+          </a>
+
+
             <a
               href="#"
               className="bg-white dark:bg-gray-800 border border-green-600 text-green-700 dark:text-green-300 hover:bg-green-50 dark:hover:bg-gray-700 px-6 py-3 rounded-md text-lg shadow transition"
