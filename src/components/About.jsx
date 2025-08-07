@@ -7,18 +7,25 @@ function About() {
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-12 items-center gap-12">
         {/* Illustration */}
-        <div className="lg:col-span-5 relative">
-          <div className="relative z-10">
+        <div className="lg:col-span-5 relative flex justify-center items-center">
+          {/* Badge */}
+          <div className="absolute top-0 right-4 sm:right-12 bg-green-600 text-white text-xs sm:text-sm px-4 py-1.5 rounded-full shadow-xl animate-bounce rotate-3 z-20">
+            ✅ Trusted Pharmacy
+          </div>
+
+          {/* Glowing Background Circle */}
+          <div className="absolute w-48 h-48 sm:w-64 sm:h-64 bg-green-400/20 dark:bg-green-300/10 rounded-full blur-3xl animate-pulse z-0"></div>
+
+          {/* Image with hover & animation */}
+          <div className="relative z-10 transition-transform duration-500 hover:scale-105">
             <img
               src="https://cdn-icons-png.flaticon.com/512/846/846449.png"
               alt="Healthcare illustration"
-              className="w-full max-w-[240px] mx-auto drop-shadow-2xl dark:brightness-90"
+              className="w-full max-w-[240px] mx-auto drop-shadow-2xl dark:brightness-90 animate-fade-in"
             />
           </div>
-          <div className="absolute top-0 right-0 bg-green-600 text-white text-sm px-4 py-2 rounded-full shadow-lg rotate-6">
-            Trusted Pharmacy
-          </div>
         </div>
+
 
         {/* Text + Features */}
         <div className="lg:col-span-7 space-y-6 relative z-10">

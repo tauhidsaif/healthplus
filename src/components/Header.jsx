@@ -109,10 +109,21 @@ function Header() {
     <header className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all dark:bg-gray-900 dark:text-white font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-green-600 text-white font-bold rounded-full flex items-center justify-center shadow text-lg" aria-label="Health Plus logo">H+</div>
-          <h1 className="text-2xl font-extrabold text-green-700 dark:text-green-400 tracking-wide">Health Plus</h1>
-        </div>
+        {/* Logo with link and subtitle */}
+<a href="#home" className="flex flex-col items-start gap-0 text-left no-underline">
+  <div className="flex items-center gap-2">
+    <div className="w-10 h-10 bg-green-600 text-white font-bold rounded-full flex items-center justify-center shadow text-lg" aria-label="Health Plus logo">
+      H+
+    </div>
+    <h1 className="text-2xl font-extrabold text-green-700 dark:text-green-400 tracking-wide">
+      Health Plus
+    </h1>
+  </div>
+  <span className="text-xs text-gray-600 dark:text-gray-400 font-medium ml-12 -mt-1">
+    Medical Store
+  </span>
+</a>
+
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
@@ -154,12 +165,12 @@ function Header() {
 
       {/* Mobile Nav */}
       <div
-        id="mobile-menu"
-        ref={menuRef}
-        className={`md:hidden fixed top-16 left-0 w-full bg-white dark:bg-gray-900 shadow transition-all duration-300 ease-in-out z-40 transform ${
-          isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
-        }`}
-      >
+          id="mobile-menu"
+          ref={menuRef}
+          className={`md:hidden fixed top-20 left-0 w-full bg-white dark:bg-gray-900 shadow transition-all duration-300 ease-in-out z-40 transform ${
+            isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+          }`}
+        >
         <nav className="flex flex-col gap-4 px-6 py-4" aria-label="Mobile navigation">
           {navItems.map((item) => (
             <a
