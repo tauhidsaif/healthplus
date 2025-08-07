@@ -30,7 +30,7 @@ function Hero() {
 
 
             <a
-              href="tel:+919876543210" onClick={() => setIsOpen(false)}
+              href="tel:+919548260273" onClick={() => setIsOpen(false)}
               className="bg-white dark:bg-gray-800 border border-green-600 text-green-700 dark:text-green-300 hover:bg-green-50 dark:hover:bg-gray-700 px-6 py-3 rounded-md text-lg shadow transition"
             >
               Call Now

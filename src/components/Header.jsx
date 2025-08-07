@@ -178,7 +178,7 @@ function Header() {
               {item.name}
             </a>
           ))}
-          <a href="tel:+919876543210" onClick={() => setIsOpen(false)} className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">Call Now</a>
+          <a href="tel:+919548260273" onClick={() => setIsOpen(false)} className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">Call Now</a>
         </nav>
       </div>
     </header>
