@@ -18,6 +18,25 @@ export default function License() {
           Fully certified and government-registered, Health Plus Medical Store ensures complete compliance with national drug regulations for your safety and trust.
         </p>
 
+         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <a
+            href="https://maps.app.goo.gl/uRPk6m1nqeG75KGy9?g_st=aw" // ← Replace with your real location
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md text-lg shadow-lg transition"
+          >
+            Locate Store
+          </a>
+
+
+            <a
+              href="tel:+919548260273" onClick={() => setIsOpen(false)}
+              className="bg-white dark:bg-gray-800 border border-green-600 text-green-700 dark:text-green-300 hover:bg-green-50 dark:hover:bg-gray-700 px-6 py-3 rounded-md text-lg shadow transition"
+            >
+              Call Now
+            </a>
+          </div>
+
         {/* Card */}
         <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,128,0,0.2)] p-8 grid md:grid-cols-2 gap-10 items-center transform transition-all hover:scale-[1.015] duration-300 border border-green-100 dark:border-green-700">
           {/* License Info */}
@@ -26,10 +45,8 @@ export default function License() {
               License Details
             </h3>
             <ul className="space-y-2 text-gray-800 dark:text-gray-200 text-base leading-relaxed">
-              <li><span className="font-medium">📄 License No:</span> UP21210002152</li>
-            <li><span className="font-medium">📅 Date of License Issue:</span> 31st August 2024</li>
             <li><span className="font-medium">🆔 Registration No:</span> 147392</li>
-              <li><span className="font-medium">🏛️ Licensing Authority:</span> Manu Shankar</li>
+              <li><span className="font-medium">🏛️ Licensing Authority:</span> Food and Drug Administration</li>
               <li><span className="font-medium">🧑 Proprietor:</span> Mohd Suhail</li>
               <li><span className="font-medium">🏪 Store Name:</span> Health Plus Medical Store</li>
             </ul>

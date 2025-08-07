@@ -18,24 +18,7 @@ function Hero() {
           </p>
 
           {/* Call-to-actions */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
-          <a
-            href="https://maps.app.goo.gl/uRPk6m1nqeG75KGy9?g_st=aw" // ← Replace with your real location
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md text-lg shadow-lg transition"
-          >
-            Locate Store
-          </a>
-
-
-            <a
-              href="tel:+919548260273" onClick={() => setIsOpen(false)}
-              className="bg-white dark:bg-gray-800 border border-green-600 text-green-700 dark:text-green-300 hover:bg-green-50 dark:hover:bg-gray-700 px-6 py-3 rounded-md text-lg shadow transition"
-            >
-              Call Now
-            </a>
-          </div>
+          
         </div>
 
         {/* Feature Cards */}

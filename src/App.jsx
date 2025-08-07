@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-100 text-gray-800">
       <Header />
+            <License /> {/* ✅ must have id="license" inside */}
       <Hero />
       <About /> 
-      <License /> {/* ✅ must have id="license" inside */}
       <Footer />
     </div>
   );
