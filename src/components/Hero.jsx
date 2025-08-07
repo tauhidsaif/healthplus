@@ -1,6 +1,6 @@
 function Hero() {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-green-50 to-white dark:from-gray-900 dark:to-gray-950 py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="home" className="relative min-h-screen bg-gradient-to-br from-green-50 to-white dark:from-gray-900 dark:to-gray-950 py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background glowing blobs */}
       <div className="absolute -top-20 -left-20 w-80 h-80 bg-green-100 rounded-full blur-3xl opacity-30 animate-pulse -z-10" />
       <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-green-200 rounded-full blur-[150px] opacity-20 -z-10" />

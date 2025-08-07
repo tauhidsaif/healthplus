@@ -1,6 +1,6 @@
 function About() {
   return (
-    <section className="relative py-24 px-4 sm:px-8 lg:px-16 bg-gradient-to-br from-green-50 to-white dark:from-gray-950 dark:to-gray-900 overflow-hidden">
+    <section  id="about" className="relative py-24 px-4 sm:px-8 lg:px-16 bg-gradient-to-br from-green-50 to-white dark:from-gray-950 dark:to-gray-900 overflow-hidden">
       {/* Decorative glowing shapes */}
       <div className="absolute top-[-100px] left-[-100px] w-72 h-72 bg-green-200 dark:bg-green-800 rounded-full blur-[120px] opacity-20 -z-10" />
       <div className="absolute bottom-[-80px] right-[-80px] w-96 h-96 bg-green-100 dark:bg-green-700 rounded-full blur-[120px] opacity-25 -z-10" />

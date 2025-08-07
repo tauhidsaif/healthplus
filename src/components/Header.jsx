@@ -128,7 +128,7 @@ function Header() {
               {item.name}
             </a>
           ))}
-          <a href="#book" className="ml-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Book Now</a>
+          <a href="tel:+919876543210" className="ml-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Book Now</a>
           <DarkModeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} buttonRef={darkToggleRef} />
         </nav>
 
@@ -176,7 +176,7 @@ function Header() {
               {item.name}
             </a>
           ))}
-          <a href="#book" onClick={() => setIsOpen(false)} className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">Book Now</a>
+          <a href="tel:+919876543210" onClick={() => setIsOpen(false)} className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">Book Now</a>
         </nav>
       </div>
     </header>
