@@ -34,8 +34,8 @@ function About() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
             {[
               { icon: "💊", title: "Genuine Products", desc: "Only trusted, verified medicines from licensed providers." },
-              { icon: "🕓", title: "24/7 Service", desc: "Around-the-clock delivery & customer support." },
-              { icon: "🚚", title: "Express Delivery", desc: "Fast, secure doorstep delivery in your area." },
+              { icon: "🩺", title: "Trusted Care",  desc: "Providing reliable and prompt support for all your medical needs."},
+              { icon: "✅", title: "Trusted Pharmacy", desc: "Authentic medicines and health essentials from your local store." },
               { icon: "❤️", title: "Care with Heart", desc: "We don’t just sell medicine, we support your wellness." }
             ].map(({ icon, title, desc }) => (
               <div

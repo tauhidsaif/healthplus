@@ -64,16 +64,18 @@ function Hero() {
 
           {/* Card 3 */}
           <div className="group bg-white/60 dark:bg-gray-800/60 backdrop-blur-md border border-green-100 dark:border-green-900 rounded-3xl p-8 shadow-md hover:shadow-2xl transition duration-300">
-            <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-green-50 group-hover:bg-green-100 transition mb-6 shadow-inner mx-auto">
-              <span className="text-2xl text-green-600">🚚</span>
-            </div>
-            <h3 className="text-xl font-semibold text-green-800 dark:text-green-300 mb-2">
-              Express Delivery
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-              Fast & secure delivery — right to your door. Experience speed and safety together.
-            </p>
+          <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-green-50 group-hover:bg-green-100 transition mb-6 shadow-inner mx-auto">
+            <span className="text-2xl text-green-600">🧾</span>
           </div>
+          <h3 className="text-xl font-semibold text-green-800 dark:text-green-300 mb-2">
+            Prescription Services
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+            Bring your prescription and get trusted, pharmacist-verified medicines with proper guidance.
+          </p>
+        </div>
+
+
         </div>
       </div>
     </section>
