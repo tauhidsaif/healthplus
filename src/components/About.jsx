@@ -26,8 +26,8 @@ function About() {
             About <span className="text-green-600">Health Plus</span>
           </h2>
           <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-2xl">
-            We’re your modern-day health partner. <strong>Health Plus</strong> brings together authenticity,
-            fast delivery, expert support, and affordable pricing — all wrapped in care.
+            We’re your modern-day health partner. <strong>Health Plus Medical Store</strong> brings together authenticity,
+            expert support, and affordable pricing — all wrapped in care.
           </p>
 
           {/* Responsive Feature Cards */}
