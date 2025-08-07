@@ -22,7 +22,7 @@ function Footer() {
   };
 
   return (
-    <footer className="relative bg-green-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 mt-16 border-t border-green-100 dark:border-green-800 transition-colors">
+    <footer className="relative bg-green-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 mt-4 border-t border-green-100 dark:border-green-800 transition-colors">
       {/* Main Footer Grid */}
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Logo & Tagline */}
