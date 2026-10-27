@@ -57,9 +57,12 @@ function Header() {
   const hamburgerRef = useRef(null);
   const darkToggleRef = useRef(null);
 
-  // Keep the document theme in sync with the React state.
+  // Keep the document theme and browser toolbar in sync with React state.
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDarkMode);
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", isDarkMode ? "#111827" : "#ffffff");
   }, [isDarkMode]);
 
   const toggleDarkMode = () => {
