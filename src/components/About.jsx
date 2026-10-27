@@ -8,15 +8,12 @@ function About() {
       <div className="max-w-7xl mx-auto grid lg:grid-cols-12 items-center gap-12">
         {/* Illustration */}
         <div className="lg:col-span-5 relative flex justify-center items-center">
-          {/* Badge */}
           <div className="absolute top-0 right-4 sm:right-12 bg-green-600 text-white text-xs sm:text-sm px-4 py-1.5 rounded-full shadow-xl animate-bounce rotate-3 z-20">
             ✅ Trusted Pharmacy
           </div>
 
-          {/* Glowing Background Circle */}
-          <div className="absolute w-48 h-48 sm:w-64 sm:h-64 bg-green-400/20 dark:bg-green-300/10 rounded-full blur-3xl animate-pulse z-0"></div>
+          <div className="absolute w-48 h-48 sm:w-64 sm:h-64 bg-green-400/20 dark:bg-green-300/10 rounded-full blur-3xl animate-pulse z-0" />
 
-          {/* Image with hover & animation */}
           <div className="relative z-10 transition-transform duration-500 hover:scale-105">
             <img
               src="https://cdn-icons-png.flaticon.com/512/846/846449.png"
@@ -26,22 +23,20 @@ function About() {
           </div>
         </div>
 
-
         {/* Text + Features */}
         <div className="lg:col-span-7 space-y-6 relative z-10">
           <h2 className="text-4xl sm:text-5xl font-extrabold text-green-800 dark:text-green-300 leading-tight">
-            About <span className="text-green-600">Health Plus</span>
+            About <span className="text-green-600 dark:text-green-400">Health Plus</span>
           </h2>
           <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-2xl">
             We’re your modern-day health partner. <strong>Health Plus Medical Store</strong> brings together authenticity,
             expert support, and affordable pricing — all wrapped in care.
           </p>
 
-          {/* Responsive Feature Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
             {[
               { icon: "💊", title: "Genuine Products", desc: "Only trusted, verified medicines from licensed providers." },
-              { icon: "🩺", title: "Trusted Care",  desc: "Providing reliable and prompt support for all your medical needs."},
+              { icon: "🩺", title: "Trusted Care", desc: "Providing reliable and prompt support for all your medical needs." },
               { icon: "✅", title: "Trusted Pharmacy", desc: "Authentic medicines and health essentials from your local store." },
               { icon: "❤️", title: "Care with Heart", desc: "We don’t just sell medicine, we support your wellness." }
             ].map(({ icon, title, desc }) => (
