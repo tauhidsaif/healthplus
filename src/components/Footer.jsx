@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 function Footer() {
   const [newsletterMessage, setNewsletterMessage] = useState("");
 
-  // Scroll to top feature
   useEffect(() => {
     const btn = document.getElementById("scrollToTop");
 
@@ -21,7 +20,6 @@ function Footer() {
 
     window.addEventListener("scroll", updateScrollButton);
     updateScrollButton();
-
     return () => window.removeEventListener("scroll", updateScrollButton);
   }, []);
 
@@ -37,24 +35,22 @@ function Footer() {
   };
 
   return (
-    <footer id="contact" className="relative bg-green-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-t border-green-100 dark:border-green-800 transition-colors">
+    <footer id="contact" aria-labelledby="contact-title" className="relative bg-green-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-t border-green-100 dark:border-green-800 transition-colors">
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        {/* Logo & Tagline */}
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 bg-green-600 text-white font-bold rounded-full flex items-center justify-center shadow text-lg">
+            <div className="w-10 h-10 bg-green-600 text-white font-bold rounded-full flex items-center justify-center shadow text-lg" aria-hidden="true">
               H+
             </div>
             <span className="text-xl font-bold text-green-800 dark:text-green-300">Health Plus</span>
           </div>
           <p className="text-sm leading-relaxed max-w-xs">
-            A complete healthcare destination for medicines, wellness products, and quick delivery with care.
+            Health Plus Medical Store serves customers in Moradabad with medicines, wellness essentials and personal-care products.
           </p>
         </div>
 
-        {/* Quick Links */}
         <div>
-          <h4 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-4">Quick Links</h4>
+          <h2 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-4">Quick Links</h2>
           <ul className="space-y-2 text-sm">
             <li><a href="#home" className="hover:text-green-600 dark:hover:text-green-300 transition">Home</a></li>
             <li><a href="#about" className="hover:text-green-600 dark:hover:text-green-300 transition">About</a></li>
@@ -63,20 +59,19 @@ function Footer() {
           </ul>
         </div>
 
-        {/* Contact Info */}
         <div>
-          <h4 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-4">Contact Us</h4>
-          <ul className="space-y-2 text-sm">
-            <li>📍 Lankri Tiraha, RTO Road, Lankri Fazalpur, Moradabad, UP - 244001</li>
-            <li>📞 <a href="tel:+919548260273" className="hover:text-green-600 dark:hover:text-green-300">+91 95482 60273</a></li>
-            <li>✉️ <a href="mailto:suhailbaksh954@gmail.com" className="hover:text-green-600 dark:hover:text-green-300">suhailbaksh954@gmail.com</a></li>
-            <li>🕒 Mon–Sat: 9:00 AM – 9:00 PM</li>
-          </ul>
+          <h2 id="contact-title" className="text-lg font-semibold text-green-700 dark:text-green-400 mb-4">Contact Health Plus Medical Store</h2>
+          <address className="not-italic space-y-2 text-sm">
+            <p>Lankri Tiraha, RTO Road, Lankri Fazalpur, Moradabad, Uttar Pradesh 244001, India</p>
+            <p>Phone: <a href="tel:+919548260273" className="hover:text-green-600 dark:hover:text-green-300">+91 95482 60273</a></p>
+            <p>Email: <a href="mailto:suhailbaksh954@gmail.com" className="break-words hover:text-green-600 dark:hover:text-green-300">suhailbaksh954@gmail.com</a></p>
+            <p>Store hours: Monday–Saturday, 9:00 AM–9:00 PM</p>
+            <p><a href="https://maps.app.goo.gl/uRPk6m1nqeG75KGy9?g_st=aw" target="_blank" rel="noopener noreferrer" className="font-semibold text-green-700 underline hover:text-green-600 dark:text-green-300 dark:hover:text-green-200">Get directions on Google Maps</a></p>
+          </address>
         </div>
 
-        {/* Newsletter & Social */}
         <div>
-          <h4 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-4">Stay Updated</h4>
+          <h2 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-4">Stay Updated</h2>
           <form onSubmit={handleNewsletterSubmit} className="flex items-center border border-green-200 dark:border-green-700 rounded overflow-hidden mb-2">
             <input
               type="email"
@@ -84,7 +79,7 @@ function Footer() {
               required
               aria-label="Your email address"
               placeholder="Your email"
-              className="w-full px-3 py-2 text-sm bg-transparent outline-none"
+              className="w-full min-w-0 px-3 py-2 text-sm bg-transparent outline-none"
             />
             <button type="submit" className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 text-sm">
               Subscribe
@@ -103,13 +98,7 @@ function Footer() {
             <a href="https://www.instagram.com/suhail_baksh07/" target="_blank" rel="noopener noreferrer" className="hover:text-green-600 dark:hover:text-green-300 transition" aria-label="Instagram">
               <i className="fab fa-instagram" aria-hidden="true"></i>
             </a>
-            <a
-              href="https://wa.me/919548260273"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-green-600 dark:hover:text-green-300 transition"
-              aria-label="WhatsApp"
-            >
+            <a href="https://wa.me/919548260273" target="_blank" rel="noopener noreferrer" className="hover:text-green-600 dark:hover:text-green-300 transition" aria-label="WhatsApp">
               <i className="fab fa-whatsapp" aria-hidden="true"></i>
             </a>
           </div>
