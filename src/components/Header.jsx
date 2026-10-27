@@ -5,7 +5,9 @@ function DarkModeToggle({ isDarkMode, toggleDarkMode, buttonRef }) {
     <button
       ref={buttonRef}
       onClick={toggleDarkMode}
-      aria-label="Toggle Dark Mode"
+      aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+      aria-pressed={isDarkMode}
+      title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
       className="w-10 h-10 flex items-center justify-center text-gray-500 hover:text-green-600 dark:hover:text-green-400 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded"
     >
       <div className="relative w-6 h-6">
@@ -16,6 +18,7 @@ function DarkModeToggle({ isDarkMode, toggleDarkMode, buttonRef }) {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
+          aria-hidden="true"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
         </svg>
@@ -27,6 +30,7 @@ function DarkModeToggle({ isDarkMode, toggleDarkMode, buttonRef }) {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
+          aria-hidden="true"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.36 6.36l-1.41-1.41M7.05 7.05L5.64 5.64m12.73 0L18.36 7.05M7.05 16.95l-1.41 1.41" />
         </svg>
@@ -38,30 +42,40 @@ function DarkModeToggle({ isDarkMode, toggleDarkMode, buttonRef }) {
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState("Home");
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    try {
+      const storedTheme = window.localStorage.getItem("theme");
+      if (storedTheme === "dark") return true;
+      if (storedTheme === "light") return false;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    } catch {
+      return false;
+    }
+  });
 
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
   const darkToggleRef = useRef(null);
 
-  // Set theme from localStorage or system preference
+  // Keep the document theme in sync with the React state.
   useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const activeDark = storedTheme === "dark" || (!storedTheme && prefersDark);
-    setIsDarkMode(activeDark);
-    document.documentElement.classList.toggle("dark", activeDark);
-  }, []);
+    document.documentElement.classList.toggle("dark", isDarkMode);
+  }, [isDarkMode]);
 
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
-    localStorage.setItem("theme", newMode ? "dark" : "light");
     document.documentElement.classList.toggle("dark", newMode);
+
+    try {
+      window.localStorage.setItem("theme", newMode ? "dark" : "light");
+    } catch {
+      // The toggle still works for this visit if storage is unavailable.
+    }
   };
 
   useEffect(() => {
-    // Close menu on outside click
+    // Close menu on outside click.
     const handleClickOutside = (event) => {
       if (
         isOpen &&
@@ -81,7 +95,7 @@ function Header() {
   }, [isOpen]);
 
   useEffect(() => {
-    // Close mobile menu on resize to desktop
+    // Close mobile menu on resize to desktop.
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsOpen(false);
@@ -92,38 +106,35 @@ function Header() {
   }, []);
 
   useEffect(() => {
-    // Lock scroll when mobile menu is open
+    // Lock scroll when the mobile menu is open.
     document.body.classList.toggle("overflow-hidden", isOpen);
+    return () => document.body.classList.remove("overflow-hidden");
   }, [isOpen]);
 
   const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "License", href: "#license" }, // or "#license" if it's a section, not a page
-  { name: "Contact", href: "#contact" },
-];
-
-
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "License", href: "#license" },
+    { name: "Contact", href: "#contact" },
+  ];
 
   return (
     <header className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all dark:bg-gray-900 dark:text-white font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         {/* Logo */}
-        {/* Logo with link and subtitle */}
-<a href="#home" className="flex flex-col items-start gap-0 text-left no-underline">
-  <div className="flex items-center gap-2">
-    <div className="w-10 h-10 bg-green-600 text-white font-bold rounded-full flex items-center justify-center shadow text-lg" aria-label="Health Plus logo">
-      H+
-    </div>
-    <h1 className="text-2xl font-extrabold text-green-700 dark:text-green-400 tracking-wide">
-      Health Plus
-    </h1>
-  </div>
-  <span className="text-xs text-gray-600 dark:text-gray-400 font-medium ml-12 -mt-1">
-    Medical Store
-  </span>
-</a>
-
+        <a href="#home" className="flex flex-col items-start gap-0 text-left no-underline">
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-green-600 text-white font-bold rounded-full flex items-center justify-center shadow text-lg" aria-label="Health Plus logo">
+              H+
+            </div>
+            <h1 className="text-2xl font-extrabold text-green-700 dark:text-green-400 tracking-wide">
+              Health Plus
+            </h1>
+          </div>
+          <span className="text-xs text-gray-600 dark:text-gray-400 font-medium ml-12 -mt-1">
+            Medical Store
+          </span>
+        </a>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
@@ -141,7 +152,7 @@ function Header() {
               {item.name}
             </a>
           ))}
-          <a href="tel:+919876543210" className="ml-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Call Now</a>
+          <a href="tel:+919548260273" className="ml-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Call Now</a>
           <DarkModeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} buttonRef={darkToggleRef} />
         </nav>
 
@@ -165,12 +176,12 @@ function Header() {
 
       {/* Mobile Nav */}
       <div
-          id="mobile-menu"
-          ref={menuRef}
-          className={`md:hidden fixed top-20 left-0 w-full bg-white dark:bg-gray-900 shadow transition-all duration-300 ease-in-out z-40 transform ${
-            isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
-          }`}
-        >
+        id="mobile-menu"
+        ref={menuRef}
+        className={`md:hidden fixed top-20 left-0 w-full bg-white dark:bg-gray-900 shadow transition-all duration-300 ease-in-out z-40 transform ${
+          isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+        }`}
+      >
         <nav className="flex flex-col gap-4 px-6 py-4" aria-label="Mobile navigation">
           {navItems.map((item) => (
             <a
