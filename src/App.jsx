@@ -1,17 +1,16 @@
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import About from "./components/About"; // Import the About component
-import License from "./components/License"; // Import the License component
-
+import About from "./components/About";
+import License from "./components/License";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800">
+    <div className="min-h-screen bg-gray-100 text-gray-800 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
       <Header />
-            <License /> {/* ✅ must have id="license" inside */}
+      <License />
       <Hero />
-      <About /> 
+      <About />
       <Footer />
     </div>
   );
