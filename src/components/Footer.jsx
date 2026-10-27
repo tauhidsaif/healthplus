@@ -1,29 +1,43 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Footer() {
+  const [newsletterMessage, setNewsletterMessage] = useState("");
+
   // Scroll to top feature
   useEffect(() => {
     const btn = document.getElementById("scrollToTop");
-    const toggleBtn = () => {
-      if (window.scrollY > 300) {
-        btn?.classList.remove("opacity-0");
-        btn?.classList.add("opacity-100");
-      } else {
-        btn?.classList.remove("opacity-100");
-        btn?.classList.add("opacity-0");
-      }
+
+    const updateScrollButton = () => {
+      if (!btn) return;
+
+      const visible = window.scrollY > 300;
+      btn.classList.toggle("opacity-100", visible);
+      btn.classList.toggle("opacity-0", !visible);
+      btn.classList.toggle("pointer-events-auto", visible);
+      btn.classList.toggle("pointer-events-none", !visible);
+      btn.tabIndex = visible ? 0 : -1;
+      btn.setAttribute("aria-hidden", String(!visible));
     };
-    window.addEventListener("scroll", toggleBtn);
-    return () => window.removeEventListener("scroll", toggleBtn);
+
+    window.addEventListener("scroll", updateScrollButton);
+    updateScrollButton();
+
+    return () => window.removeEventListener("scroll", updateScrollButton);
   }, []);
 
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleNewsletterSubmit = (event) => {
+    event.preventDefault();
+    setNewsletterMessage(
+      "Newsletter sign-up is not connected yet. Please contact the store directly."
+    );
+  };
+
   return (
     <footer id="contact" className="relative bg-green-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-t border-green-100 dark:border-green-800 transition-colors">
-      {/* Main Footer Grid */}
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Logo & Tagline */}
         <div>
@@ -54,8 +68,8 @@ function Footer() {
           <h4 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-4">Contact Us</h4>
           <ul className="space-y-2 text-sm">
             <li>📍 Lankri Tiraha, RTO Road, Lankri Fazalpur, Moradabad, UP - 244001</li>
-            <li>📞 +91 95482 60273</li>
-            <li>✉️ suhailbaksh954@gmail.com</li>
+            <li>📞 <a href="tel:+919548260273" className="hover:text-green-600 dark:hover:text-green-300">+91 95482 60273</a></li>
+            <li>✉️ <a href="mailto:suhailbaksh954@gmail.com" className="hover:text-green-600 dark:hover:text-green-300">suhailbaksh954@gmail.com</a></li>
             <li>🕒 Mon–Sat: 9:00 AM – 9:00 PM</li>
           </ul>
         </div>
@@ -63,9 +77,12 @@ function Footer() {
         {/* Newsletter & Social */}
         <div>
           <h4 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-4">Stay Updated</h4>
-          <form className="flex items-center border border-green-200 dark:border-green-700 rounded overflow-hidden mb-4">
+          <form onSubmit={handleNewsletterSubmit} className="flex items-center border border-green-200 dark:border-green-700 rounded overflow-hidden mb-2">
             <input
               type="email"
+              name="email"
+              required
+              aria-label="Your email address"
               placeholder="Your email"
               className="w-full px-3 py-2 text-sm bg-transparent outline-none"
             />
@@ -73,38 +90,43 @@ function Footer() {
               Subscribe
             </button>
           </form>
+          {newsletterMessage && (
+            <p className="text-xs mb-4 text-gray-600 dark:text-gray-400" role="status">
+              {newsletterMessage}
+            </p>
+          )}
 
           <div className="flex gap-4 text-xl">
-            <a href="https://www.facebook.com/share/19PGudzAuJ/" target="_blank" className="hover:text-green-600 transition" aria-label="Facebook">
-              <i className="fab fa-facebook-f"></i>
+            <a href="https://www.facebook.com/share/19PGudzAuJ/" target="_blank" rel="noopener noreferrer" className="hover:text-green-600 dark:hover:text-green-300 transition" aria-label="Facebook">
+              <i className="fab fa-facebook-f" aria-hidden="true"></i>
             </a>
-            <a href="https://www.instagram.com/suhail_baksh07/" target="_blank" className="hover:text-green-600 transition" aria-label="Instagram">
-              <i className="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/suhail_baksh07/" target="_blank" rel="noopener noreferrer" className="hover:text-green-600 dark:hover:text-green-300 transition" aria-label="Instagram">
+              <i className="fab fa-instagram" aria-hidden="true"></i>
             </a>
             <a
               href="https://wa.me/919548260273"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-green-600 transition"
+              className="hover:text-green-600 dark:hover:text-green-300 transition"
               aria-label="WhatsApp"
             >
-              <i className="fab fa-whatsapp"></i>
+              <i className="fab fa-whatsapp" aria-hidden="true"></i>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Bottom Strip */}
       <div className="text-center text-xs py-4 border-t border-green-100 dark:border-green-800">
         © {new Date().getFullYear()} Health Plus Medical Store. All rights reserved.
       </div>
 
-      {/* Scroll to Top Button */}
       <button
         id="scrollToTop"
         onClick={handleScrollToTop}
-        className="fixed bottom-6 right-6 z-50 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition-all duration-300 opacity-0"
+        className="fixed bottom-6 right-6 z-50 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition-all duration-300 opacity-0 pointer-events-none"
         aria-label="Scroll to top"
+        aria-hidden="true"
+        tabIndex={-1}
       >
         ↑
       </button>
