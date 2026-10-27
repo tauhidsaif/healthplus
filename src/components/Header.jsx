@@ -11,7 +11,6 @@ function DarkModeToggle({ isDarkMode, toggleDarkMode, buttonRef }) {
       className="w-10 h-10 flex items-center justify-center text-gray-500 hover:text-green-600 dark:hover:text-green-400 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded"
     >
       <div className="relative w-6 h-6">
-        {/* Moon Icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className={`absolute inset-0 w-6 h-6 transform transition-all duration-300 ease-in-out ${isDarkMode ? "opacity-0 scale-90" : "opacity-100 scale-100"}`}
@@ -22,8 +21,6 @@ function DarkModeToggle({ isDarkMode, toggleDarkMode, buttonRef }) {
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
         </svg>
-
-        {/* Sun Icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className={`absolute inset-0 w-6 h-6 transform transition-all duration-300 ease-in-out ${isDarkMode ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
@@ -57,7 +54,6 @@ function Header() {
   const hamburgerRef = useRef(null);
   const darkToggleRef = useRef(null);
 
-  // Keep the document theme and browser toolbar in sync with React state.
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDarkMode);
     document
@@ -78,7 +74,6 @@ function Header() {
   };
 
   useEffect(() => {
-    // Close menu on outside click.
     const handleClickOutside = (event) => {
       if (
         isOpen &&
@@ -98,18 +93,14 @@ function Header() {
   }, [isOpen]);
 
   useEffect(() => {
-    // Close mobile menu on resize to desktop.
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsOpen(false);
-      }
+      if (window.innerWidth >= 768) setIsOpen(false);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-    // Lock scroll when the mobile menu is open.
     document.body.classList.toggle("overflow-hidden", isOpen);
     return () => document.body.classList.remove("overflow-hidden");
   }, [isOpen]);
@@ -124,22 +115,20 @@ function Header() {
   return (
     <header className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all dark:bg-gray-900 dark:text-white font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <a href="#home" className="flex flex-col items-start gap-0 text-left no-underline">
+        <a href="#home" className="flex flex-col items-start gap-0 text-left no-underline" aria-label="Health Plus Medical Store home">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-green-600 text-white font-bold rounded-full flex items-center justify-center shadow text-lg" aria-label="Health Plus logo">
+            <div className="w-10 h-10 bg-green-600 text-white font-bold rounded-full flex items-center justify-center shadow text-lg" aria-hidden="true">
               H+
             </div>
-            <h1 className="text-2xl font-extrabold text-green-700 dark:text-green-400 tracking-wide">
+            <span className="text-2xl font-extrabold text-green-700 dark:text-green-400 tracking-wide">
               Health Plus
-            </h1>
+            </span>
           </div>
           <span className="text-xs text-gray-600 dark:text-gray-400 font-medium ml-12 -mt-1">
             Medical Store
           </span>
         </a>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
           {navItems.map((item) => (
             <a
@@ -159,7 +148,6 @@ function Header() {
           <DarkModeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} buttonRef={darkToggleRef} />
         </nav>
 
-        {/* Mobile Controls */}
         <div className="flex items-center gap-2 md:hidden">
           <DarkModeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} buttonRef={darkToggleRef} />
           <button
@@ -177,7 +165,6 @@ function Header() {
         </div>
       </div>
 
-      {/* Mobile Nav */}
       <div
         id="mobile-menu"
         ref={menuRef}
